@@ -1,25 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useReducer} from 'react';
+import Header from './Header';
+import AddToList from './AddToList';
+import ListContents from './ListContents';
+export  const AllContext=React.createContext();
+export  const AllDispatch=React.createContext();
+const { v4: uuidv4 } = require('uuid');//this(import uuid from 'uuid/v4';) is not working for some reason
+
+
+
+
+const reduceFunc=(list, action) => {
+  switch(action.type){
+    case 'ADD': return [...list,{id: uuidv4(), toDo: action.toDo}]
+    case 'REMOVE': return list.filter((item) => item.id!==action.id);
+    default: return list;
+  }
+}
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+ 
+  const [list, dispatch]=useReducer(reduceFunc, [{id: 0, toDo: 'note your first to do 😉'}]);
+
+ return (
+  <div className="card">
+    <AllContext.Provider value={list}>
+      <AllDispatch.Provider value={dispatch}>
+        <Header  />
+        <AddToList />
+        <ListContents />
+      </AllDispatch.Provider>
+    </AllContext.Provider>
+  </div>
   );
 }
 
