@@ -31,13 +31,13 @@ code {
 .card{
   margin:  0 auto;
   width: 70vw;
-  background-color: #ddddee;
+  background-color: red;
   max-height: 99vh;
   box-shadow: 0px 2px   10px #333 ;
 }
 
 .header{
-  background-color: #01678f;
+  background-color: red;
   color: #fff;
   padding: 2.5rem;
 }
