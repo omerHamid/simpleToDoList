@@ -31,13 +31,13 @@ code {
 .card{
   margin:  0 auto;
   width: 70vw;
-  background-color: red;
+  background-color: #ddddee;
   max-height: 99vh;
   box-shadow: 0px 2px   10px #333 ;
 }
 
 .header{
-  background-color: red;
+  background-color: #01678f;
   color: #fff;
   padding: 2.5rem;
 }
@@ -59,7 +59,7 @@ ul{
 li{
   display: flex;
   justify-content: space-between;
-  background-color: red;
+  background-color: #fff;
   border-radius: 10px; 
   list-style: none;
   margin: 0 auto 0.5rem auto;
